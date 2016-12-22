@@ -23,6 +23,8 @@ chmod +x /opt/factorio/bin/x64/factorio
 WORKDIR /dotnetapp
 COPY out .
 
+WORKDIR /opt/factorio
+
 # Set Environment
 ENV PORT 5000
 EXPOSE 5000
@@ -33,4 +35,4 @@ EXPOSE 34197/udp
 VOLUME /opt/factorio/saves
 VOLUME /opt/factorio/mods
 
-CMD [ "./FactorioMultiplayerAdmin" ]
+CMD [ "/FactorioMultiplayerAdmin" ]
