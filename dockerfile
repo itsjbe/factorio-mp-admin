@@ -12,7 +12,8 @@ curl -sL "http://www.factorio.com/get-download/${FACTORIO_VERSION}/headless/linu
 chmod +x /opt/factorio/bin/x64/factorio
 
 # Install the App
-
+WORKDIR /dotnetapp
+COPY out .
 
 # Set Environment
 ENV PORT 5000
@@ -23,3 +24,5 @@ EXPOSE 34197/udp
 
 VOLUME /opt/factorio/saves
 VOLUME /opt/factorio/mods
+
+CMD [ "dotnet", "run", "FactorioMultiplayerAdmin.dll" ]
