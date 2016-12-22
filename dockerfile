@@ -1,8 +1,16 @@
-FROM microsoft/dotnet:runtime
+FROM ubuntu:xenial
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
- ca-certificates \
+ #ca-certificates \
  curl \
+ libunwind8 \
+ libkrb5-3 \
+ libicu55 \
+ liblttng-ust0 \
+ libssl1.0.0 \
+ zlib1g \
+ libuuid1 \
+ liblldb-3.6 \
  && rm -rf /var/lib/apt/lists/
 
 # Install Factorio
@@ -22,7 +30,7 @@ EXPOSE 5000
 ENV FACTORIO_PORT 34197
 EXPOSE 34197/udp
 
-VOLUME /opt/factorio/saves
-VOLUME /opt/factorio/mods
+#VOLUME /opt/factorio/saves
+#VOLUME /opt/factorio/mods
 
-CMD [ "dotnet", "run", "FactorioMultiplayerAdmin.dll" ]
+CMD [ "./FactorioMultiplayerAdmin" ]
