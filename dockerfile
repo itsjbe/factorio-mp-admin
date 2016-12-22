@@ -30,7 +30,7 @@ EXPOSE 5000
 ENV FACTORIO_PORT 34197
 EXPOSE 34197/udp
 
-#VOLUME /opt/factorio/saves
-#VOLUME /opt/factorio/mods
+VOLUME /opt/factorio/saves
+VOLUME /opt/factorio/mods
 
 CMD [ "./FactorioMultiplayerAdmin" ]
