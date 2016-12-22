@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
- #ca-certificates \
+ ca-certificates \
  curl \
  libunwind8 \
  libkrb5-3 \
